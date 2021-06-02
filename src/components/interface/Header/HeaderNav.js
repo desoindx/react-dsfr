@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import typeValidation from '../../../utils/type-validation';
 
 import HeaderContext from './headerContext';
 
@@ -46,11 +47,14 @@ const HeaderNav = ({
 };
 
 HeaderNav.defaultProps = {
+  __TYPE: 'HeaderNav',
   className: '',
   closeButtonLabel: 'Fermer',
 };
 
 HeaderNav.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
+  __TYPE: typeValidation('HeaderNav'),
   closeButtonLabel: PropTypes.string,
   className: PropTypes.oneOfType([
     PropTypes.string,

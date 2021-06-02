@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import typeValidation from '../../../utils/type-validation';
 
 const ModalClose = ({
   hide, title, children, className,
@@ -17,6 +18,8 @@ const ModalClose = ({
   </button>
 );
 ModalClose.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
+  __TYPE: typeValidation('ModalClose'),
   children: PropTypes.string,
   title: PropTypes.string,
   /**
@@ -30,6 +33,7 @@ ModalClose.propTypes = {
   ]),
 };
 ModalClose.defaultProps = {
+  __TYPE: 'ModalClose',
   children: 'Fermer',
   title: 'Fermer la fenêtre modale',
   className: '',

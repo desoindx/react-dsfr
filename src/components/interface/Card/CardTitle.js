@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import typeValidation from '../../../utils/type-validation';
 
 const CardTitle = ({
   href, children, as, anchorAs, className,
@@ -15,6 +16,7 @@ const CardTitle = ({
 };
 
 CardTitle.defaultProps = {
+  __TYPE: 'CardTitle',
   anchorAs: 'a',
   as: 'p',
   className: '',
@@ -28,6 +30,8 @@ CardTitle.propTypes = {
   /**
    * @ignore
    */
+  // eslint-disable-next-line react/no-unused-prop-types
+  __TYPE: typeValidation('CardTitle'),
   anchorAs: PropTypes.string,
   children: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([

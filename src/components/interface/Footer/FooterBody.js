@@ -2,10 +2,11 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Link from '../Link/index';
+import typeValidation from '../../../utils/type-validation';
 
 const FooterBody = ({ children, description, className }) => {
   const Logo = Children.toArray(children).filter(
-    (child) => child.type.name === 'Logo',
+    (child) => child.props.__TYPE === 'Logo',
   );
   return (
     <div className={classNames('fr-footer__body', className)}>
@@ -51,6 +52,8 @@ const FooterBody = ({ children, description, className }) => {
   );
 };
 FooterBody.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
+  __TYPE: typeValidation('FooterBody'),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -62,6 +65,9 @@ FooterBody.propTypes = {
     PropTypes.array,
   ]),
 };
-FooterBody.defaultProps = { className: '' };
+FooterBody.defaultProps = {
+  __TYPE: 'FooterBody',
+  className: '',
+};
 
 export default FooterBody;
